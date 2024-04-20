@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd"
+       xmlns:context="http://www.springframework.org/schema/context">
+
+    <context:annotation-config/>
+    <!--    TODO:XMl Auto Wiring-->
+    <!--    <bean class="org.example.AutoWiring.XmlAutoWiring.Address" name="addeewe">-->
+    <!--        <property name="street" value="chincholi gate"/>-->
+    <!--        <property name="city" value="malad"/>-->
+    <!--    </bean>-->
+
+
+    <!--    <bean class="org.example.AutoWiring.XmlAutoWiring.Emp" name="emp1"  autowire="byType" />-->
+    <!--    <bean class="org.example.AutoWiring.XmlAutoWiring.Emp" name="emp1"  autowire="byName" />-->
+    <!--    <bean class="org.example.AutoWiring.XmlAutoWiring.Emp" name="emp1" autowire="constructor"/>-->
+
+
+    <!--    TODO:Annotation Auto Wiring-->
+
+    <bean class="org.example.AutoWiring.AnnotaionAutoWiring.Address" name="add">
+        <property name="street" value="iranewadi"/>
+        <property name="city" value="goregaon"/>
+    </bean>
+    <bean class="org.example.AutoWiring.AnnotaionAutoWiring.Emp" name="emp1"/>
+
+</beans>

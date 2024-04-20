@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+  https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--    TODO:Example Of Setter Method within Type-->
+
+    <!--using P schema-->
+    <bean class="org.example.DependencyInjectionEx.SetterType.Student" name="student1" p:stdId="1010" p:stdName="abcd"
+          p:stdAdd="aaaa"/>
+
+    <!--using value as Attribute-->
+    <bean class="org.example.DependencyInjectionEx.SetterType.Student" name="student2">
+        <property name="stdId" value="1020"/>
+        <property name="stdName" value="xyz"/>
+        <property name="stdAdd" value="bbbb"/>
+    </bean>
+
+    <!--using value as Element-->
+    <bean class="org.example.DependencyInjectionEx.SetterType.Student" name="student3">
+        <property name="stdId">
+            <value>1030</value>
+        </property>
+        <property name="stdName">
+            <value>ghij</value>
+        </property>
+        <property name="stdAdd">
+            <value>cccc</value>
+        </property>
+    </bean>
+
+
+    <!--    TODO:Example Of Collection Type-->
+
+
+    <bean class="org.example.DependencyInjectionEx.CollectionType.Emp" name="EmpCollEx">
+        <property name="eName" value="Salman"/>
+
+        <!--        Set value in "List" type collection -->
+        <property name="ePhoneNumber">
+            <list>
+                <value>1111</value>
+                <value>2222</value>
+                <value>3333</value>
+            </list>
+        </property>
+
+        <!--        Set value in "Set" type collection -->
+        <property name="eAddresses">
+            <set>
+                <value>malad</value>
+                <value>goregaon</value>
+                <value>jogeshwari</value>
+            </set>
+        </property>
+
+
+        <!--        Set value in "Map" type collection -->
+        <property name="eCourses">
+            <map>
+                <entry key="B-Tech" value="4year"/>
+                <entry key="BCA" value="3year"/>
+                <entry key="MCA" value="2year"/>
+            </map>
+        </property>
+
+    </bean>
+
+    <!--TODO:Example Of Reference Type-->
+
+    <bean class="org.example.DependencyInjectionEx.ReferenceType.B" name="bRef">
+        <property name="y" value="I_AM_Y"/>
+    </bean>
+    <!-- TODO:You Can Use 'P' Schema-->
+
+    <bean class="org.example.DependencyInjectionEx.ReferenceType.A" name="aRef">
+        <property name="x" value="I_AM_X"/>
+
+        <!--using Ref as Element-->
+            <!--        <property name="obj">-->
+            <!--            <ref bean="bRef"/>-->
+            <!--        </property>-->
+        <!--using Ref as Attribute-->
+        <property name="obj" ref="bRef"/>
+        
+    </bean>
+
+    <!--TODO:Example Of Constructor Injection-->
+    <bean  class="org.example.DependencyInjectionEx.Constructor_Injection.Cirtificate" name="cirti">
+        <constructor-arg value="Java User"  />
+    </bean>
+
+    <bean class="org.example.DependencyInjectionEx.Constructor_Injection.Person" name="conInjection">
+        <constructor-arg value="123" type="int"/>
+        <constructor-arg value="abcd_xyz"/>
+        <constructor-arg ref="cirti"/>
+        <constructor-arg>
+            <list>
+                <value>Java</value>
+                <value>Php</value>
+                <value>Python</value>
+            </list>
+        </constructor-arg>
+    </bean>
+
+
+</beans>
